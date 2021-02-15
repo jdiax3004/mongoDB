@@ -34,7 +34,7 @@ db.horarios.aggregate({ $lookup:{ from:"cines", localField:"cine", foreignField:
 db.peliculas.find().forEach(
     function (final) {
         final.actores = db.actores.find( { "_id": { $in: final.actores }  } ).toArray();
-        print(final);
+        print(tojson(final));
     }
 );
 
@@ -43,7 +43,7 @@ db.horarios.find({hora: "tarde"}).forEach(
     function (final) {
         final.pelicula = db.peliculas.findOne( { "_id": final.pelicula } );
         final.cine = db.cines.findOne( { "_id": final.cine } );
-        print(final);
+        print(tojson(final));
     }
 );
 
@@ -51,7 +51,7 @@ db.horarios.find({hora: "tarde"}).forEach(
 db.cines.find({sucursal: "Curridabat"}).forEach(
     function (final) {
         final.preliculas = db.peliculas.find( { "_id": { $in: final.preliculas }  } ).toArray();
-        print(final);
+        print(tojson(final));
     }
 );
 ```

@@ -1,10 +1,12 @@
 # Laboratorio MongoDB - Diseño Web II
 
+**Nota**: El usuario y la contraseña se encuentran en el BlackBoard
+
 Console Connection String
-mongo "mongodb+srv://cineulacit.hadat.mongodb.net/CineULACIT" --username <username>
+`mongo "mongodb+srv://cineulacit.hadat.mongodb.net/CineULACIT" --username <username>`
 
 Compass Connection String
-mongodb+srv://<username>:<password>@cineulacit.hadat.mongodb.net/CineULACIT
+`mongodb+srv://<username>:<password>@cineulacit.hadat.mongodb.net/CineULACIT`
  
 ```javascript
 // [01] Visualizar todos los actores

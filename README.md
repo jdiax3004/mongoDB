@@ -1,12 +1,12 @@
 # Laboratorio MongoDB - Diseño Web II
 
-**Nota**: El usuario y la contraseña se encuentran en el BlackBoard
+**Nota**: El usuario y la contraseña se encuentran en el BlackBoard por razones de seguridad
 
-Console Connection String
-`mongo "mongodb+srv://cineulacit.hadat.mongodb.net/CineULACIT" --username <username>`
+**Console Connection String**
+```mongo "mongodb+srv://cineulacit.hadat.mongodb.net/CineULACIT" --username <username>```
 
-Compass Connection String
-`mongodb+srv://<username>:<password>@cineulacit.hadat.mongodb.net/CineULACIT`
+**Compass Connection String**
+```mongodb+srv://<username>:<password>@cineulacit.hadat.mongodb.net/CineULACIT```
  
 ```javascript
 // [01] Visualizar todos los actores
@@ -55,3 +55,146 @@ db.cines.find({sucursal: "Curridabat"}).forEach(
     }
 );
 ```
+------
+
+## Scripts Inserción de Datos
+
+```javascript
+db.actores.insertMany([
+    {
+        "nombre": "Jennifer Fernandez",
+        "edad": 25
+    },
+    {
+        "nombre": "Will Smith",
+        "edad": 40
+    },
+    {
+        "nombre": "Michael Junior",
+        "edad": 55
+    },
+    {
+        "nombre": "Rosario Juls",
+        "edad": 15
+    },
+    {
+        "nombre": "Ginger Bridgetown",
+        "edad": 80
+    }
+
+]);
+
+db.precios.insertMany([
+    {
+        "menor": 2300,
+        "adulto": 3100,
+        "tercera_edad":2500
+    }
+]);
+
+db.peliculas.insertMany([
+    {
+        "nombre": "Titanic",
+        "director": "James Cameron",
+        "precio": 150000,
+        "genero": "Drama",
+        "actores": [ObjectId("6029c50f140eff569d567a01"), ObjectId("6029c581140eff569d567a04")],
+        "califiacion_edad": 0
+    },
+    {
+        "nombre": "Interstellar",
+        "director": "Julio Castro",
+        "precio": 250000,
+        "genero": "Ficcion",
+        "actores": [ObjectId("6029c50f140eff569d567a02"), ObjectId("6029c581140eff569d567a03")],
+        "califiacion_edad": 0
+    },
+    {
+        "nombre": "50 Shades of Gray",
+        "director": "Julieta Gray",
+        "precio": 10000,
+        "genero": "Romantica",
+        "actores": [ObjectId("6029c50f140eff569d567a01"), ObjectId("6029c581140eff569d567a05")],
+        "califiacion_edad": 18
+    },
+    {
+        "nombre": "Rapidos y Furiosos",
+        "director": "John Cena",
+        "precio": 35000,
+        "genero": "Accion",
+        "actores": [ObjectId("6029c50f140eff569d567a02"), ObjectId("6029c581140eff569d567a05")],
+        "califiacion_edad": 16
+    },
+    {
+        "nombre": "Toy Story",
+        "director": "Walt Disney",
+        "precio": 1000000,
+        "genero": "Animada",
+        "actores": [],
+        "califiacion_edad": 0
+    }
+
+]);
+
+
+
+db.cines.insertMany([
+    {
+        "sucursal": "Escazu",
+        "preliculas": [ObjectId("6029c8b8140eff569d567a07"), ObjectId("6029c8b8140eff569d567a08"),ObjectId("6029c8b8140eff569d567a09"), ObjectId("6029c8b8140eff569d567a0a")],
+        "precios":ObjectId("6029ca26140eff569d567a11")
+    },
+    {
+        "sucursal": "Curridabat",
+        "preliculas": [ObjectId("6029c8b8140eff569d567a07"), ObjectId("6029c8b8140eff569d567a08"),ObjectId("6029c8b8140eff569d567a10"), ObjectId("6029c8b8140eff569d567a0a")],
+        "precios":ObjectId("6029ca26140eff569d567a11")
+    },
+    {
+        "sucursal": "Alajuela",
+        "preliculas": [ObjectId("6029c8b8140eff569d567a10"), ObjectId("6029c8b8140eff569d567a08"),ObjectId("6029c8b8140eff569d567a09"), ObjectId("6029c8b8140eff569d567a0a")],
+        "precios":ObjectId("6029ca26140eff569d567a11")
+    },
+    {
+        "sucursal": "Heredia",
+        "preliculas": [ObjectId("6029c8b8140eff569d567a07"), ObjectId("6029c8b8140eff569d567a08"),ObjectId("6029c8b8140eff569d567a09"), ObjectId("6029c8b8140eff569d567a10")],
+        "precios":ObjectId("6029ca26140eff569d567a11")
+    },
+    {
+        "sucursal": "Limon",
+        "preliculas": [ObjectId("6029c8b8140eff569d567a07"), ObjectId("6029c8b8140eff569d567a10"),ObjectId("6029c8b8140eff569d567a09"), ObjectId("6029c8b8140eff569d567a0a")],
+        "precios":ObjectId("6029ca26140eff569d567a11")
+    }
+
+]);
+
+
+db.horarios.insertMany([
+    {
+        "cine": ObjectId("6029cbac140eff569d567a12"),
+        "pelicula": ObjectId("6029c8b8140eff569d567a07"),
+        "hora": "mañana"
+    },
+    {
+        "cine": ObjectId("6029cbac140eff569d567a13"),
+        "pelicula": ObjectId("6029c8b8140eff569d567a08"),
+        "hora": "tarde"
+    },
+    {
+        "cine": ObjectId("6029cbac140eff569d567a14"),
+        "pelicula": ObjectId("6029c8b8140eff569d567a09"),
+        "hora": "noche"
+    },
+    {
+        "cine": ObjectId("6029cbac140eff569d567a15"),
+        "pelicula": ObjectId("6029c8b8140eff569d567a10"),
+        "hora": "mañana"
+    },
+    {
+        "cine": ObjectId("6029cbac140eff569d567a16"),
+        "pelicula": ObjectId("6029c8b8140eff569d567a0a"),
+        "hora": "tarde"
+    }
+
+]);
+```
+

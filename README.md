@@ -60,6 +60,15 @@ db.cines.find({sucursal: "Curridabat"}).forEach(
 ## Scripts Inserción de Datos
 
 ```javascript
+
+//Creación de colecciones
+db.createCollection("actores")
+db.createCollection("peliculas")
+db.createCollection("cines")
+db.createCollection("horarios")
+db.createCollection("precios")
+
+//Datos de Actores
 db.actores.insertMany([
     {
         "nombre": "Jennifer Fernandez",
@@ -84,6 +93,7 @@ db.actores.insertMany([
 
 ]);
 
+//Datos de Precios
 db.precios.insertMany([
     {
         "menor": 2300,
@@ -92,6 +102,7 @@ db.precios.insertMany([
     }
 ]);
 
+//Datos de Peliculas
 db.peliculas.insertMany([
     {
         "nombre": "Titanic",
@@ -137,7 +148,7 @@ db.peliculas.insertMany([
 ]);
 
 
-
+//Datos de Cines
 db.cines.insertMany([
     {
         "sucursal": "Escazu",
@@ -167,7 +178,7 @@ db.cines.insertMany([
 
 ]);
 
-
+//Datos de Horarios
 db.horarios.insertMany([
     {
         "cine": ObjectId("6029cbac140eff569d567a12"),
